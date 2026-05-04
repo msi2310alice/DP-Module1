@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+    <script>
+        //bài 9: kiểm tra có phải là tam giác không
+        let a = parseInt(prompt("nhập a"));
+        let b = parseInt(prompt("nhập b"));
+        let c = parseInt(prompt("nhập c"));
+        if (a>0 && b>0 && c>0 && (a+b)>0 && (a+c)>0 && (b+c)>0) {
+            alert("a, b, c là 3 cạnh của tam giác");
+        } else {
+            alert("a, b, c không là 3 cạnh của tam giác");
+        }
+        //bài 8: ktra tuoi
+        /*let a = parseInt(prompt("nhập a"));
+        if (a>0) {
+            if (a<120) {
+                alert("Là tuổi của một người");
+            } else { 
+                alert("Không là tuổi của một người");
+            }
+        } else { 
+                alert("Không là tuổi của một người");
+            }
+        */
+        //bài 7: giải phương trình bậc 2 ax^2 +bx+c=0
+        /* let a = parseInt(prompt("nhập a"));
+        let b = parseInt(prompt("nhập b"));
+        let c = parseInt(prompt("nhập c"));
+        let delta = b*b -4*a*c;
+        let x1, x2;
+
+        if (a!=0) {
+            if (delta<0) {
+                alert("phương trình vô nghiệm.")
+            } else if (delta == 0) {
+                x1=-b/(2*a);
+                alert("Phương trình có nghiệm kép: " +x1);
+            } else {
+                x1=(-b+Math.sqrt(delta))/(2*a);
+                x2=(-b-Math.sqrt(delta))/(2*a);
+                alert("phương trình có 2 nghiệm phân biệt x1:" + x1 + "; x2:"+x2 );
+            }
+        } else {
+            let x1 = -c/b;
+        alert("nghiệm phương trình bx + c =0 là: " + x1);
+        }
+        */
+        //bài 6: giải phương trình bậc 1 ax+b=0
+        /* let a = prompt("nhập a:");
+        let b = prompt("nhập b");
+        let x = -b/a;
+        alert("nghiệm phương trình ax + b =0 là: " + x); */
+
+    </script>
+</body>
+</html>
