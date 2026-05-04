@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<body>
+
+    <script>
+        
+        bai 5
+        let kt = parseInt(prompt("điểm kiểm tra: "));
+        let gt = parseInt(prompt("điểm giữa kỳ: "));
+        let ck = parseInt(prompt("điểm cuối kỳ"));
+        let dtb = (kt+gt+ck)/3;
+        console.log(dtb);
+        if (dtb>9) {
+            alert("xuất sắc");
+        } else if (dtb>8) {
+                alert("giỏi");
+            } else if (dtb>7) {
+                    alert("khá");
+                } else if (dtb>5) {
+                    alert("trung bình");
+                    } else { 
+                            alert("yếu")
+                        }
+        
+        /*bài 4
+        let a = prompt("nhập a:");
+        let b = prompt("nhập b:");
+        let c = prompt("nhập c:");
+        let max;
+        if (a>b) {
+            if (a>c) {
+                max = a;
+            } else {
+                max = c;
+            }
+        } else if (b>c) {
+            max = b;
+        } else {
+            max = c;
+        }
+        alert("giá trị lớn nhất "+max)
+        */
+        /*bai 3
+        let a = prompt("nhập số nguyên:");
+        if (a==0) {
+            alert("bằng 0");
+        } else if (a>0) {
+            alert("lớn hơn 0");
+        } else {
+            alert("nhỏ hơn 0");
+        }
+        */
+        /*bai 2
+        let a = prompt("nhập tuổi: ");
+        if (a>=16) {
+            alert("đủ điều kiện vào học lớp 10");
+        } else {
+            alert("không đủ điều kiện vào lớp 10")
+        }
+        */
+        /*bai 1
+        let a = prompt("nhập a:");
+        let b = prompt("nhập b:");
+        let c = a%b;
+        if (c == 0) {
+            alert("a chia het cho b");
+        } else {
+            alert("a khong chia het cho b");
+        }
+        */
+    </script>
+    
+</body>
+</html>
