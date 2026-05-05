@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành 1</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        //bài 2
+        let a = parseInt(prompt("nhập a >0: "));
+        let i = 1;
+        let tong = 0;
+        while (i<=a) {
+            tong +=i;
+            console.log(tong);
+            i++;
+        }
+        document.getElementById("demo").innerHTML="Tổng các giá trị từ 1 đến "+a+" là: "+ tong;
+        // Bài 1
+        // let count = 0;
+        // text = document.getElementById("demo");
+        // while (count<=5) {
+        //     console.log("The number is " + count);
+        //     text.innerHTML += "The number is"+ count+"<br>";
+        //     count++;
+        // }
+    </script>
+</body>
+</html>
