@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3</title>
+</head>
+<body>
+    <input type="number" id="solg" placeholder="Nhập số lượng số số Fibonacci">
+    <button type="button" onclick="Fibonacci()">Hiển thị</button>
+    <p id="show"></p>
+    <script>
+        function Fibonacci() {
+            let count = 3;
+            let solg = +document.getElementById("solg").value;
+            let F1 = 0;
+            let F2 = 1;
+            let F = 0;
+            let text = "0; 1; ";
+            while (count<=solg) {
+                F = F1 + F2;
+                text += F +"; ";
+                F1 = F2;
+                F2 = F;
+                count++;
+            }
+            console.log(text);
+            document.getElementById("show").innerHTML=text;
+        }
+        
+    </script>
+</body>
+</html>
