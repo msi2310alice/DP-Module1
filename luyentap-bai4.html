@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 4</title>
+</head>
+<body>
+    <input type="number" id="solg" placeholder="Nhập số lượng số số Fibonacci">
+    <button type="button" onclick="Fibonacci()">Hiển thị</button>
+    <p id="show"></p>
+    <P id="chiahetcho5"></P>
+    <script>
+        // function Fibonacci() {
+        //     let count = 3;
+        //     let solg = +document.getElementById("solg").value;
+        //     let F1 = 0;
+        //     let F2 = 1;
+        //     let F = 0;
+        //     let text = "0; 1; ";
+        //     let flag = false;
+        //     while (count<=solg) {
+        //         F = F1 + F2;
+        //         if (F%5==0) {
+        //             flag = true;
+        //             break;
+        //             return F;
+                    
+        //         }
+        //         text += F +"; ";
+        //         F1 = F2;
+        //         F2 = F;
+        //         count++;
+        //     }
+        //     if (flag) {
+        //         console.log(F);
+        //         document.getElementById("show").innerHTML= "Số đầu tiên trong dãy Fibonacci chia hết cho 5: "+ F;
+        //     } else {
+        //         alert("không có số chia hết cho 5");
+        //     }
+            
+        // }
+        function Fibonacci() {
+            let count = 3;
+            let solg = +document.getElementById("solg").value;
+            let F1 = 0;
+            let F2 = 1;
+            let F = 0;
+            let text = "0; 1; ";
+            let M ="";
+            while (count<=solg) {
+                F = F1 + F2;
+                if (F%5==0) {
+                    M += F + "; ";
+                } 
+                text += F +"; ";
+                F1 = F2;
+                F2 = F;
+                count++;
+            }
+            console.log(text);
+            console.log(M);
+            document.getElementById("show").innerHTML=text;
+            if (M=="") {
+                document.getElementById("chiahetcho5").innerHTML="Không có số chia hết cho 5";
+            } else {
+                document.getElementById("chiahetcho5").innerHTML=M;
+            }
+            
+        }
+
+       
+        
+    </script>
+</body>
+</html>
