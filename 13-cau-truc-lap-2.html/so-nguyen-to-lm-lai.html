@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Số nguyên tố tự làm lại</title>
+</head>
+<body>
+    <input type="number" name="start" id="s" placeholder="Nhập số bắt đầu">
+    <input type="number" name="soluong" id="m" placeholder="Nhập số lượng số nguyên tố">
+    <button type="button" onclick="hienthisonguyento()">Hiển thị</button>
+    <p id="show"></p>
+    <script>
+        // kiểm tra 1 số có phải là số nguyên tố không?
+            //số nguyên tố là số nguyên dương, chỉ chia hết cho 1 và chính nó, số nhỏ nhất là 2
+        // kiểm tra những số nào, sau đó hiển thị ra số nguyên tố 
+        function kiemtra(number) {
+            let i = 2;
+            let flag = true;
+            while (i<number) {
+                if (number%i==0) {
+                    flag = false;
+                    break;
+                }
+                i++;
+            }
+            // console.log(i);
+            return flag;
+        }
+        // console.log(kiemtra(4));
+
+        
+        function hienthisonguyento() {
+            let count = 0;
+            let text = "";
+            let sobatdau = +document.getElementById("s").value;
+            let soluong = +document.getElementById("m").value;
+            while (count < soluong) {
+                if (kiemtra(sobatdau)) {
+                    count ++;
+                    text += sobatdau + "; ";
+                }
+                sobatdau++;
+            }
+            console.log(text);
+            document.getElementById("show").innerHTML=text;
+        }
+        
+            
+        
+        
+        
+    </script>
+    
+</body>
+</html>
