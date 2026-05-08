@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        function giaithua(number) {
+            if (number < 0) {
+                alert("Hãy nhập lại số nguyên dương")
+            } else { 
+                let i = 1;
+                let tinh = 1;
+                while (i <= number) {
+                    tinh *= i;
+                    i++;
+                }
+            console.log(tinh);
+            }
+        }
+        giaithua(-9);
+    </script>
+</body>
+</html>
