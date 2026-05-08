@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+    <style>
+        div {
+            font-size: 30px;
+        }
+        .khoi1, .khoi2 {
+            margin: 0px;
+            padding: 0px;
+            text-align: left;
+        }
+        .khoi3, .khoi4 {
+            margin: 0px;
+            padding: 0px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hienthi1"></div> <br>
+    <div id="hienthi2"></div> 
+    <div id="hienthi3"></div> <br>
+    <div id="hienthi4"></div>
+    <script>
+        // function vuongduoitrai() {
+        //     let i = 1;
+        //     let line = "";
+        //     let text = "";
+        //     while (i <= 5) {
+        //         line += "*";
+        //         //console.log(text);
+        //         text += line + "<br>";
+        //         document.getElementById("hienthi").innerHTML=text;
+        //         i++;
+        //     }
+        // }
+        // vuongduoitrai();
+        function veline(n) {
+            let i = 1;
+            let line = "";
+            while (i <= n) {
+                line += "*";
+                i++
+            }
+            return line;
+        }
+        // console.log(veline(5));
+        function vuongduoitrai() {
+            let j = 1;
+            let text = "";
+            while (j <= 5) {
+                text += "<div class='khoi1'>"+ veline(j) + "</div>";
+                document.getElementById("hienthi1").innerHTML=text;
+                j++;
+            }
+        }
+        vuongduoitrai();
+
+        function vuongtrentrai() {
+            let j = 5;
+            let text = "";
+            while (j >= 1) {
+                text += "<div class='khoi2'>"+ veline(j) + "</div>";
+                document.getElementById("hienthi2").innerHTML=text;
+                j--;
+            }
+        }
+        vuongtrentrai();
+
+        function vuongduoiphai() {
+            let j = 1;
+            let text = "";
+            while (j <= 5) {
+                text += "<div class='khoi3'>"+ veline(j) + "</div>";
+                document.getElementById("hienthi3").innerHTML=text;
+                j++;
+            }
+        }
+        vuongduoiphai();
+        
+        function vuongtrenphai() {
+            let j = 5;
+            let text = "";
+            while (j >= 1) {
+                text += "<div class='khoi4'>"+ veline(j) + "</div>";
+                document.getElementById("hienthi4").innerHTML=text;
+                j--;
+            }
+        }
+        vuongtrenphai();
+
+    </script>
+</body>
+</html>
