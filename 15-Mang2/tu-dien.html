@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ điển</title>
+</head>
+<body>
+    <form>
+        <input type="text" name="nhap" id="word">
+        <input type="button" name="kiemtra" value="Search" onclick="tratu()">
+        <hr>
+        <p id="hienthi"></p>
+    </form>
+    <script>
+        function tratu() {
+            let English = ["Apple", "Book", " Water", "House", "School"];
+            let Vietnamese = ["Táo", "Sách", "Nước", "Ngựa", "Trường học"];
+            let word = document.getElementById("word").value;
+            // console.log(word === English[0].toLowerCase());
+
+            //chuyển nội dung của ô input vào mảng 
+            let tuvung = [];
+            for (let i = 0; i<word.length; i++) {
+                tuvung[i] = word[i];
+            }
+            //kiểm tra ghép các phần tử trong mảng lại và giữa các phần tử ngăn cách bởi không có dấu gì
+            console.log(tuvung.join('').toLowerCase()); 
+
+            //vòng lặp tra từ được nhập so với mảng tiếng Anh nếu có thì hiển thị nghĩa tiếng Việt
+            let text ="";
+            for (let i = 0; i < English.length; i++) {
+                if (tuvung.join('').toLowerCase() === English[i].toLowerCase()) {
+                    text= Vietnamese[i];
+                    break;
+                } else {
+                    text = "Không tìm thấy từ này";
+                }
+            }
+            document.getElementById("word").value ="";
+            document.getElementById("hienthi").innerHTML="Nghĩa của từ "+word+ " là " +text;
+        }
+        
+
+    </script>
+</body>
+</html>
