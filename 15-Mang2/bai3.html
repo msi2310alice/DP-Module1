@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let a = prompt("Nhập chuỗi ký tự vào:");
+        console.log(a);
+        let mang = [];
+        for (let i = 0; i < a.length; i++) {
+            mang[i] = a[i];
+        }
+        console.log(mang);
+        let text="";
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] === mang[i].toUpperCase()) {
+                mang[i] = mang[i].toLowerCase();
+            } else {
+                mang[i] = mang[i].toUpperCase();
+            }
+            text += mang[i];
+        }
+        console.log(mang.join(''));
+        console.log(text);
+    </script>
+</body>
+</html>
