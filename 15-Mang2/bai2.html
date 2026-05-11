@@ -7,8 +7,28 @@
 </head>
 <body>
     <script>
-        let a = +prompt("Nhập 1 chuỗi số từ bàn phím: ");
+        let a = prompt("Nhập 1 chuỗi số từ bàn phím: ");
 
+        //phần code sau là đang tìm cách để tách từng ký tự trong chuỗi số 
+        // let i = 0;
+        // let b = a / (10**i);
+        // let mang = [];
+        // while (b>1) {
+        //     i++;
+        //     mang[i-1] = a % (10**i);
+        //     b = a / (10**i);
+        //     console.log(mang[i-1]);
+        // }
+        console.log(a);
+        let text = a[0];
+        for (let i=0; i<a.length-1; i++) {
+            if ((+a[i]%2 ==0)&&(+a[i+1]%2==0)) {
+                text += "-" + a[i+1];
+            } else {
+                text += a[i+1];
+            }
+        }
+        console.log(text);
     </script>
 </body>
 </html>
