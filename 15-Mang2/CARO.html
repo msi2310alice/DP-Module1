@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÀN CỜ CARO</title>
+    <style>
+        table {
+            border: 1px solid gray;
+            border-collapse: collapse;
+
+        }
+        td {
+            border: 1px solid gray;
+            width: 30px;
+            height: 30px;
+            padding-bottom: 3px;
+            padding-top: 3px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <table id="banCo"></table>
+    <script>
+
+    // B1: kẻ bàn cờ 
+    // B2: tick vào ô để đánh X hoặc O 
+    // B3: kiểm tra xem thắng chưa và thông báo thắng
+    function veBanCo() {
+        let text ="";
+        for (let i = 0; i <20; i++) {
+            text += `<tr>`;
+            for (let j = 0; j<20; j++) {
+                text += `<td id="cell-${i}-${j}" onclick="danhCo(this)"></td>`
+            }
+            text += `</tr>`;
+        }
+        document.getElementById("banCo").innerHTML= text;
+
+    }
+    veBanCo();
+    
+
+    const PLAY_X = "X";
+    const PLAY_O = "O";
+    let play = PLAY_X;
+    function danhCo(cell) {
+        // console.log(cell);
+        let id = cell.id;
+        if (play == PLAY_X) {
+            cell.innerHTML = PLAY_X;
+            cell.style.color = "red";
+            play = PLAY_O;
+        } else if (play == PLAY_O ) {
+            cell.innerHTML = PLAY_O;
+            cell.style.color = "blue";
+            play = PLAY_X;
+        }
+        layGiaTri(id);
+    }
+    
+    function layGiaTri(vitri) {
+        // console.log(vitri);
+        let toado = vitri.split("-");
+        // console.log(toado);
+        let row = +toado[1]; //tọa độ hàng của ô mới tick (ứng với chỉ số i trong table)
+        let col = +toado[2]; //tọa độ cột của ô mới tick (ứng với chỉ số j trong table)
+        // let a = document.getElementById(`${toado[0]}-${row}-${col}`).innerHTML;
+        // console.log(a);
+        
+
+        //LẤY GIÁ TRỊ MẢNG THEO HÀNG
+        let kiemtrahang = []; // mảng có các giá trị: 4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick
+        let k = 4; // số ô liên tiếp cần xét để kiểm tra 
+        //vòng for để lấy giá trị của (4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick) đưa vào mảng rỗng kiemtrahang
+        for (let m =0; m<=k; m++) {
+            if (col>=m) {
+                kiemtrahang[k-m] = document.getElementById(`${toado[0]}-${row}-${col-m}`).innerHTML;
+            }
+            kiemtrahang[k+m] = document.getElementById(`${toado[0]}-${row}-${col+m}`).innerHTML;
+        } 
+        // console.log(kiemtrahang);
+        //kiểm tra WIN
+        win(kiemtrahang);   
+
+
+        
+        //LẤY GIÁ TRỊ MẢNG THEO CỘT
+        let kiemtracot = []; // mảng có các giá trị: 4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick
+        // let k = 4; // số ô liên tiếp cần xét để kiểm tra 
+        //vòng for để lấy giá trị của (4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick) đưa vào mảng rỗng kiemtrahang
+        for (let m =0; m<=k; m++) {
+            if (row>=m) {
+                kiemtracot[k-m] = document.getElementById(`${toado[0]}-${row-m}-${col}`).innerHTML;
+            }
+            kiemtracot[k+m] = document.getElementById(`${toado[0]}-${row+m}-${col}`).innerHTML;
+        } 
+        // console.log(kiemtracot);
+        //kiểm tra WIN
+        win(kiemtracot);   
+
+
+        //LẤY GIÁ TRỊ MẢNG THEO ĐƯỜNG CHÉO 1 (góc phần tư II và IV)
+        let kiemtraduongcheo1 = []; // mảng có các giá trị: 4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick
+        // let k = 4; // số ô liên tiếp cần xét để kiểm tra 
+        //vòng for để lấy giá trị của (4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick) đưa vào mảng rỗng kiemtrahang
+        for (let m =0; m<=k; m++) {
+            if (col>=m && row>=m) {
+                kiemtraduongcheo1[k-m] = document.getElementById(`${toado[0]}-${row-m}-${col-m}`).innerHTML;
+            }
+            kiemtraduongcheo1[k+m] = document.getElementById(`${toado[0]}-${row+m}-${col+m}`).innerHTML;
+        } 
+        // console.log(kiemtraduongcheo1);
+        //kiểm tra WIN
+        win(kiemtraduongcheo1); 
+
+
+        //LẤY GIÁ TRỊ MẢNG THEO ĐƯỜNG CHÉO 1 (góc phần tư I và III)
+        let kiemtraduongcheo2 = []; // mảng có các giá trị: 4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick
+        // let k = 4; // số ô liên tiếp cần xét để kiểm tra 
+        //vòng for để lấy giá trị của (4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick) đưa vào mảng rỗng kiemtrahang
+        for (let m =0; m<=k; m++) {
+            if (col>=m && row>=m) {
+                kiemtraduongcheo2[k-m] = document.getElementById(`${toado[0]}-${row-m}-${col+m}`).innerHTML;
+                console.log(row-m,col+m);
+                kiemtraduongcheo2[k+m] = document.getElementById(`${toado[0]}-${row+m}-${col-m}`).innerHTML;
+                console.log(row+m,col-m);
+            } 
+            
+        } 
+        console.log(kiemtraduongcheo2);
+        //kiểm tra WIN
+        win(kiemtraduongcheo2); 
+
+    }
+
+    function win(mang) {
+        let count = 0; // số lần liên tiếp có giá trị giống nhau 
+        for (let i = 0; i<mang.length-1; i++) {
+            if ((mang[i] == mang[i+1])&&(mang[i]!='')&&(mang[i]!=undefined)) {
+                    count++;
+                } 
+        } 
+        console.log(count);
+        if (count == 4) {
+            console.log("WIN");
+        }       
+    }    
+
+        
+        
+    </script>
+    
+</body>
+</html>
