@@ -125,12 +125,14 @@
         // let k = 4; // số ô liên tiếp cần xét để kiểm tra 
         //vòng for để lấy giá trị của (4 ô phía trước ô đc tick, ô được tick, 4 ô phía sau ô được tick) đưa vào mảng rỗng kiemtrahang
         for (let m =0; m<=k; m++) {
-            if (col>=m && row>=m) {
+            if (row>=m) {
                 kiemtraduongcheo2[k-m] = document.getElementById(`${toado[0]}-${row-m}-${col+m}`).innerHTML;
                 console.log(row-m,col+m);
+                
+            } else {
                 kiemtraduongcheo2[k+m] = document.getElementById(`${toado[0]}-${row+m}-${col-m}`).innerHTML;
                 console.log(row+m,col-m);
-            } 
+            }
             
         } 
         console.log(kiemtraduongcheo2);
